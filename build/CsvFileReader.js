@@ -16,8 +16,7 @@ class CsvFileReader {
             // telling readFileSync what type of content to expect in football.csv
             // adding this will make it return a string
             encoding: 'utf-8'
-            // split on each new line
-        }).split('\n')
+        }).split('\n') // split on each new line
             // map over and on each row, 
             // split and 
             .map((row) => {
@@ -30,6 +29,8 @@ class CsvFileReader {
                 row[2],
                 parseInt(row[3]),
                 parseInt(row[4]),
+                row[5],
+                row[6]
             ];
         });
     }
