@@ -22,6 +22,7 @@ class CsvFileReader {
             .map((row) => {
             return row.split(',');
         })
+            // poor model
             .map((row) => {
             return [
                 (0, utils_1.dateStringToDate)(row[0]),

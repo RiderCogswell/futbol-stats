@@ -18,7 +18,8 @@ export class CsvFileReader {
     .map((row: string): string[] => {
       return row.split(',');
     })
-    .map((row: string[]): any => {
+    // poor model
+    .map((row: string[]): (Date | string | number | MatchResult)[] => {
       return [
         dateStringToDate(row[0]),
         row[1],
