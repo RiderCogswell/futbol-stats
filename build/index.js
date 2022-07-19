@@ -16,11 +16,20 @@ const matches = fs_1.default.readFileSync('football.csv', {
     return row.split(',');
 });
 console.log(matches);
-// javascript option solution
-const MatchResult = {
-    HomeWin: 'H',
-    AwayWin: 'A',
-    Draw: 'D',
+// enum - enumeration - is a much better option because most engineers 
+// will delete unused vars and enums are clear to engineers in utility
+var MatchResult;
+(function (MatchResult) {
+    MatchResult["HomeWin"] = "H";
+    MatchResult["AwayWin"] = "A";
+    MatchResult["Draw"] = "D";
+})(MatchResult || (MatchResult = {}));
+const printMatchResult = () => {
+    if (match[5] === 'H') {
+        return MatchResult.HomeWin;
+    }
+    // basecase away win
+    return MatchResult.AwayWin;
 };
 let manUnitedWins = 0;
 for (let match of matches) {
