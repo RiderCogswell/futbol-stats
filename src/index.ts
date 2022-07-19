@@ -3,6 +3,8 @@ import { CsvFileReader } from "./CsvFileReader";
 const reader = new CsvFileReader('football.csv');
 reader.read();
 
+console.log(reader.data);
+
 // enum - enumeration - is a much better option because most engineers 
 // will delete unused vars and enums are clear to engineers in utility
 enum MatchResult {

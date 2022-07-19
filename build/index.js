@@ -3,6 +3,7 @@ Object.defineProperty(exports, "__esModule", { value: true });
 const CsvFileReader_1 = require("./CsvFileReader");
 const reader = new CsvFileReader_1.CsvFileReader('football.csv');
 reader.read();
+console.log(reader.data);
 // enum - enumeration - is a much better option because most engineers 
 // will delete unused vars and enums are clear to engineers in utility
 var MatchResult;
