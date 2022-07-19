@@ -20,17 +20,20 @@ export class CsvFileReader {
     .map((row: string): string[] => {
       return row.split(',');
     })
-    // poor model
-    .map((row: string[]): MatchData => {
-      return [
-        dateStringToDate(row[0]),
-        row[1],
-        row[2],
-        parseInt(row[3]),
-        parseInt(row[4]),
-        row[5] as MatchResult, // Type Assertion - overrides TS' default behavior
-        row[6]
-      ]
-    })
+    // better model
+    .map(this.mapRow)
+  }
+
+  // isolate custom logic to mapRow func
+  mapRow(row:string[]): MatchData {
+    return [
+      dateStringToDate(row[0]),
+      row[1],
+      row[2],
+      parseInt(row[3]),
+      parseInt(row[4]),
+      row[5] as MatchResult, // Type Assertion - overrides TS' default behavior
+      row[6]
+    ]
   }
 }
