@@ -1,8 +1,8 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
-const CsvFileReader_1 = require("./CsvFileReader");
+const MatchReader_1 = require("./MatchReader");
 const MatchResult_1 = require("./MatchResult");
-const reader = new CsvFileReader_1.CsvFileReader('football.csv');
+const reader = new MatchReader_1.MatchReader('football.csv');
 reader.read();
 console.log(reader.data[0][0]); // this is very incredible, study it later
 let manUnitedWins = 0;
