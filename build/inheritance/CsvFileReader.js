@@ -11,12 +11,18 @@ class CsvFileReader {
         this.data = [];
     }
     read() {
-        this.data = fs_1.default
-            .readFileSync(this.filename, {
+        this.data = fs_1.default.readFileSync(this.filename, {
+            // telling readFileSync what type of content to expect in football.csv
+            // adding this will make it return a string
             encoding: 'utf-8'
+        }).split('\n') // split on each new line
+            // map over and on each row, 
+            // split and 
+            .map((row) => {
+            return row.split(',');
         })
-            .split('\n')
-            .map((row));
+            // better model
+            .map(this.mapRow);
     }
 }
 exports.CsvFileReader = CsvFileReader;
