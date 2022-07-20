@@ -1,9 +1,6 @@
 import fs from 'fs';
-import { MatchResult } from './MatchResult';
 
-type MatchData = [Date, string, string, number, number, MatchResult, string]
-
-export abstract class CsvFileReader<T> { // we usually use T to show a genric, but it can literally be anything
+export abstract class CsvFileReader<T> { // we usually use T to show a genrric, but it can literally be anything
   data: T[] = [];
   
   constructor(public filename: string) {}
