@@ -3,12 +3,12 @@ import { MatchResult } from './MatchResult';
 
 type MatchData = [Date, string, string, number, number, MatchResult, string]
 
-export abstract class CsvFileReader {
-  data: MatchData[] = [];
+export abstract class CsvFileReader<T> { // we usually use T to show a genric, but it can literally be anything
+  data: T[] = [];
   
   constructor(public filename: string) {}
 
-  abstract mapRow(row:string[]): MatchData // isolate custom logic to mapRow func
+  abstract mapRow(row:string[]): T // isolate custom logic to mapRow func
 
   read(): void {
     this.data = fs.readFileSync(this.filename, {
