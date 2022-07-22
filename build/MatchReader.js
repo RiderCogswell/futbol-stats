@@ -8,6 +8,7 @@ class MatchReader {
         this.reader = reader;
         this.matches = [];
     }
+    // by creating a static version of this we are greatly improving our codes readability + overall use
     static fromCsv(filename) {
         return new MatchReader(new CsvFileReader_1.CsvFileReader(filename));
     }

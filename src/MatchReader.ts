@@ -9,6 +9,7 @@ interface DataReader {
 }
 
 export class MatchReader {
+  // by creating a static version of this we are greatly improving our codes readability + overall use
   static fromCsv(filename: string): MatchReader {
     return new MatchReader(new CsvFileReader(filename))
   }
