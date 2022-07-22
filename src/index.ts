@@ -1,21 +1,10 @@
 import { MatchReader } from "./MatchReader";
-import { CsvFileReader } from "./CsvFileReader";
-import { ConsoleReport } from "./reportTargets/ConsoleReports";
-import { WinsAnalysis } from "./analyzers/WinsAnalysis";
 import { Summary } from "./Summary";
-import { HtmlReport } from "./reportTargets/HtmlReports";
 
-// create object that satisfies datareader interface
-const csvFileReader = new CsvFileReader('football.csv')
-// create an instance of matchreader and pass in something that saatisfies the data reader interface
-const matchReader = new MatchReader(csvFileReader);
+const matchReader = MatchReader.fromCsv('football.csv');
+const summary = Summary.winsAnalysisWithHtml('Man United') // only benefit is we do not have to call a new instance as the static class already does
+
 matchReader.load();
-
-const summary = new Summary(
-  new WinsAnalysis('Man United'),
-  new HtmlReport()
-);
-
 summary.buildAndPrintReport(matchReader.matches);
 
 // console.log(matchReader.matches[0][0]); // this is very incredible, study it later
